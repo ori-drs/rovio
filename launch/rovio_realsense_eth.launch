@@ -1,0 +1,17 @@
+<launch>      
+  <arg name="mav_name" default="falcon2"/>
+  <arg name="namespace" default="$(arg mav_name)" />
+
+
+    <arg name="camera"       default="$(arg mav_name)/camera" />
+
+    <node name="rovio" pkg="rovio" type="rovio_node" output="screen">
+      <param name="filter_config" value="$(find rovio)/cfg/realsense_eth/rovio.info" />
+      <param name="camera0_config" value="$(find rovio)/cfg/realsense_eth/rovio_cam0.yaml" /> 
+      <remap from="cam0/image_raw" to="$(arg mav_name)/fisheye/fisheye"/>
+<!--      <remap from="imu0" to="/falcon2/dji_sdk/imu"/> -->
+      <remap from="imu0" to="/falcon2/imu/compensated"/>
+<!--      <param name="world_frame" value="odom"/> -->
+<!--      <param name="capability_group" value="Rovio" /> -->
+    </node>
+</launch>
