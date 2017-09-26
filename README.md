@@ -12,7 +12,8 @@ Please also have a look at the wiki: https://github.com/ethz-asl/rovio/wiki
 Dependencies:
 * ros
 * kindr (https://github.com/ethz-asl/kindr)
-* lightweight_filtering (as submodule, use "git submodule update --init --recursive")
+* lightweight_filtering (as submodule, use
+git submodule update --init --recursive
 
 ```
 #!command
