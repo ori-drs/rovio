@@ -2,7 +2,7 @@
 ; #include "/home/user/workspace/rovio/cfg/rovio_custom.info"
 Common
 {
-	doVECalibration false;		Should the camera-IMU extrinsics be calibrated online
+	doVECalibration true;		Should the camera-IMU extrinsics be calibrated online
 	depthType 1;				Type of depth parametrization (0: normal, 1: inverse depth, 2: log, 3: hyperbolic)
 	verbose false;				Is the verbose active
 }
@@ -24,7 +24,7 @@ Init
     {
         pos_0 0;			X-entry of initial position (world to IMU in world) [m]
         pos_1 0;			Y-entry of initial position (world to IMU in world) [m]
-        pos_2 0;  Z-entry of initial position (world to IMU in world) [m] (from tf_echo imu_link odom when state estimator begin)
+        pos_2 0;      Z-entry of initial position (world to IMU in world) [m]
         vel_0 0;			X-entry of initial velocity (robocentric, IMU) [m/s]
         vel_1 0;			Y-entry of initial velocity (robocentric, IMU) [m/s]
         vel_2 0;			Z-entry of initial velocity (robocentric, IMU) [m/s]
@@ -34,7 +34,7 @@ Init
         gyb_0 0;			X-entry of gyroscope bias [rad/s]
         gyb_1 0;			Y-entry of gyroscope bias [rad/s]
         gyb_2 0;			Z-entry of gyroscope bias [rad/s]
-        att_x 0;			X-entry of initial attitude (IMU to world, Hamilton) (from tf_echo imu_link odom when state estimator begins)
+        att_x 0;			X-entry of initial attitude (IMU to world, Hamilton)
         att_y 0;			Y-entry of initial attitude (IMU to world, Hamilton)
         att_z 0;			Z-entry of initial attitude (IMU to world, Hamilton)
         att_w 1;			W-entry of initial attitude (IMU to world, Hamilton)
@@ -114,7 +114,7 @@ ImgUpdate
     discriminativeSamplingGain 1.1;								Gain for threshold above which the samples must lie (if <= 1.0 the patchRejectionTh is used).
     MotionDetection
     {
-    	isEnabled 0;											Is the motion detection enabled
+    	isEnabled 1;											Is the motion detection enabled
 	    rateOfMovingFeaturesTh 0.5;								Amount of feature with motion for overall motion detection
 	    pixelCoordinateMotionTh 1.0;							Threshold for motion detection for patched [pixels]
 	    minFeatureCountForNoMotionDetection 5;					Min feature count in frame for motion detection
@@ -129,7 +129,7 @@ ImgUpdate
         }
         MahalanobisTh0 7.689997599999999;						Mahalanobid distance for zero velocity updates
         minNoMotionTime 1.0;									Min duration of no-motion
-        isEnabled 0;											Should zero velocity update be applied, only works if MotionDetection.isEnabled is true
+        isEnabled 1;											Should zero velocity update be applied, only works if MotionDetection.isEnabled is true
     }
 }
 Prediction
@@ -182,7 +182,7 @@ PoseUpdate
     pre_cov_MrMV 1e-4;							Covariance parameter of pose between inertial frames, linear part [m^2/s]
     pre_cov_qVM 1e-4;							Covariance parameter of pose between inertial frames, rotational part [rad^2/s]
     MahalanobisTh0 12.6511204;					Mahalonobis distance treshold of pose measurement
-	doVisualization false;						Should the measured poses be vizualized
+	doVisualization true;						Should the measured poses be vizualized
 	enablePosition true;						Should the linear part be used during the update
 	enableAttitude true;						Should the rotation part be used during the update (e.g. set to fals eif feeding GPS-measurement)
 	noFeedbackToRovio true;						By default the pose update is only used for aligning coordinate frame. Set to false if ROVIO should benefit frome the posed measurements.
