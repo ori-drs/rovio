@@ -499,13 +499,19 @@ class RovioNode{
     // Get image from msg
     cv_bridge::CvImagePtr cv_ptr;
     try {
-      cv_ptr = cv_bridge::toCvCopy(img, sensor_msgs::image_encodings::TYPE_8UC1);
+      // @davidwisth - modified to allow colour images as an input, not just grayscale.
+      cv_ptr = cv_bridge::toCvCopy(img);
     } catch (cv_bridge::Exception& e) {
       ROS_ERROR("cv_bridge exception: %s", e.what());
       return;
     }
+    // @davidwisth - convert all images to sensor_msgs::image_encodings::TYPE_8UC1.
+    cv::Mat cv_img_temp;
+    cv_ptr->image.copyTo(cv_img_temp);
+
     cv::Mat cv_img;
-    cv_ptr->image.copyTo(cv_img);
+    cv::cvtColor(cv_img_temp, cv_img, CV_BGR2GRAY);
+    
     if(init_state_.isInitialized() && !cv_img.empty()){
       double msgTime = img->header.stamp.toSec();
       if(msgTime != imgUpdateMeas_.template get<mtImgMeas::_aux>().imgTime_){
