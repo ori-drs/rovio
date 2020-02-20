@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<launch>
+  <!-- Enable GUI-->
+  <arg name="gui"  default="true" />
+  <arg name="rviz_config"  default="rovio" />
+
+  <!-- Use RViz-->
+  <node pkg="rovio" type="rovio_node" name="rovio" output="screen">
+    <param name="filter_config" value="$(find rovio)/cfg/rooster_imu_d435i.info"/>
+  
+    <param name="camera0_config" value="$(find rovio)/cfg/rooster_cam0.yaml"/>
+    <param name="camera1_config" value="$(find rovio)/cfg/rooster_cam1.yaml"/>
+    
+    <!-- Realsense IMU-->
+    <remap from="/imu0" to="/camera/imu"/>
+    <!-- Ouster IMU-->
+    <!-- <remap from="/imu0" to="/os1_cloud_node/imu"/> -->
+
+    <!-- Camera topics -->
+    <remap from="/cam0/image_raw" to="/camera/infra1/image_rect_raw"/>
+    <remap from="/cam1/image_raw" to="/camera/infra2/image_rect_raw"/>
+  </node>
+
+  <!-- Use RViz-->
+  <node if="$(arg gui)" name="rviz" pkg="rviz" type="rviz" args="-d $(find rovio)/rviz/$(arg rviz_config).rviz"/>
+
+</launch>

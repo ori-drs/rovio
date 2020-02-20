@@ -1,0 +1,13 @@
+###### Camera Calibration File For Cam 1 of Rooster ######
+image_width: 848
+image_height: 480
+camera_name: cam1
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [430.47347028827687, 0.0, 428.1146097180138, 0.0, 429.4290363969728, 237.0482166140297, 0.0, 0.0, 1.0]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data:  [0.006351283033570153, -0.002484714792120153, -0.00022539629433485122, 0.0008021062177272738, 0.0]
