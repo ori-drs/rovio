@@ -60,13 +60,13 @@ Visualization Manager:
       Reference Frame: <Fixed Frame>
       Value: true
     - Class: rviz/Marker
-      Enabled: true
+      Enabled: false
       Marker Topic: /rovio/markers
       Name: Marker
       Namespaces:
-        "": true
+        {}
       Queue Size: 100
-      Value: true
+      Value: false
     - Alpha: 1
       Axes Length: 1
       Axes Radius: 0.10000000149011612
@@ -219,25 +219,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 27.28374481201172
+      Distance: 22.987342834472656
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.6528512239456177
-        Y: 8.094000816345215
-        Z: -0.13108129799365997
+        X: -3.346449136734009
+        Y: 4.9790472984313965
+        Z: 0.40318775177001953
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.24479727447032928
-      Target Frame: camera0
+      Pitch: 0.7747969627380371
+      Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.548588752746582
+      Yaw: 6.143597602844238
     Saved: ~
 Window Geometry:
   Displays:

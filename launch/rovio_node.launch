@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <launch>
+  <!-- Enable GUI-->
+  <arg name="gui"  default="true" />
+  <arg name="rviz_config"  default="rovio" />
+
   <node pkg="rovio" type="rovio_node" name="rovio" output="screen">
   <param name="filter_config" value="$(find rovio)/cfg/rovio.info"/>
   <param name="camera0_config" value="$(find rovio)/cfg/euroc_cam0.yaml"/>
   <param name="camera1_config" value="$(find rovio)/cfg/euroc_cam1.yaml"/>
   </node>
+
+   <!-- Use RViz-->
+  <node if="$(arg gui)" name="rviz" pkg="rviz" type="rviz" args="-d $(find rovio)/rviz/$(arg rviz_config).rviz"/>
+
 </launch>
