@@ -4,7 +4,7 @@
   <arg name="gui"  default="true" />
   <arg name="rviz_config"  default="rovio" />
 
-  <!-- Use RViz-->
+  <!-- Rovio -->
   <node pkg="rovio" type="rovio_node" name="rovio" output="screen">
     <param name="filter_config" value="$(find rovio)/cfg/rooster_imu_d435i.info"/>
   

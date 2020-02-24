@@ -97,7 +97,7 @@ Visualization Manager:
       Topic: /rovio/pose_with_covariance_stamped
       Unreliable: false
       Value: true
-    - Angle Tolerance: 0.5
+    - Angle Tolerance: 0.10000000149011612
       Class: rviz/Odometry
       Covariance:
         Orientation:
@@ -115,9 +115,9 @@ Visualization Manager:
           Value: true
         Value: false
       Enabled: true
-      Keep: 1000
+      Keep: 10000000
       Name: Odometry
-      Position Tolerance: 0.5
+      Position Tolerance: 0.10000000149011612
       Shape:
         Alpha: 1
         Axes Length: 0.30000001192092896
@@ -219,25 +219,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 22.987342834472656
+      Distance: 46.08008575439453
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -3.346449136734009
-        Y: 4.9790472984313965
-        Z: 0.40318775177001953
+        X: 6.5929741859436035
+        Y: 15.368865966796875
+        Z: 4.437554359436035
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7747969627380371
+      Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 6.143597602844238
+      Yaw: 4.328591823577881
     Saved: ~
 Window Geometry:
   Displays:
